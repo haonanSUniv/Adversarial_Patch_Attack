@@ -1,20 +1,21 @@
-# Adversarial_Patch_Attack
-Pytorch implementation of Adversarial Patch on ImageNet (arXiv: https://arxiv.org/abs/1712.09665)
+## Adversarial Patch Attacks Tensorflow
 
-## Experiment Result
-We selected Pytorch pretrained model ResNet50 as our victim model.  
-We generate the patch on 2000 randomly selected pictures with 50 epochs and different size of noise.  
-After generated, the patch is tested on 1000 rondomly selected pictures.  
-The successful attack rate of our best patch is in the chart below.  
+# Please open Patch_Attack_Tensorflow.ipynb where all the trainnings, reports and definitions of useful functions and classes are inside.
 
-|noise percentage | 0.035 | 0.04 | 0.05 | 0.06 |  
-|:----: | :----: |:----:| :----: |:----:|  
-|patch size | (40, 40) | (43, 43) | (50, 50) | (54, 54) |   
-|successful rate | 85.19% | 91.00% | 98.48% | 99.61% |  
+# Step:
+1. Install the necessary packages and import libraries;
+2. Please change the variable DATA_DIR to your repository where your wish to save the trainned patchs and other important data;
+3. Download the image files toaster.png, peace_sign.png, tie_dye.png under your DATA_DIR
+4. Execute the code of all the definition of fonctions and two classes ModelContainer and MetaModel until the part of Patch Generation
+5. Execute the white box, black box trainning process, every patch and data will be saved under DATA_DIR that you define at the beginning
+6. After all the trainning, execute the evaluation to see the plot of performance of the patches generated
 
-### Adversarial Patch
-One of our found best patch is shown below.  
-<img src="https://github.com/zhaojb17/Adversarial_Patch_Attack/blob/master/experiment_statistics/5%25noise/pictures/best_patch.png" width = 30% height = 30% div align=center />
 
-## Reference:
-[1] Tom B. Brown, Dandelion Mané, Aurko Roy, Martín Abadi, Justin Gilmer [Adversarial Patch. arXiv:1712.09665](https://arxiv.org/abs/1712.09665)
+# Attention:
+1. Image and Patch size are generally (299,299,3)
+2. The attack target label here is 'toaster' and you can modify it to anything you want, but make sure it's in the category of objets that the classifiers are able to recognize
+3. The trainning resulte with a wider difference between SCALE_MIN and SCALE_MAX works better
+
+
+![resulte](https://user-images.githubusercontent.com/118989703/209239620-f66d4a6d-37c2-4394-9d75-10c768a59367.png)
+
